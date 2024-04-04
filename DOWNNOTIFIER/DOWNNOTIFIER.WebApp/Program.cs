@@ -1,5 +1,6 @@
 using DOWNNOTIFIER.BusinessLayer.Abstract;
 using DOWNNOTIFIER.BusinessLayer.Concrete;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace DOWNNOTIFIER.WebApp
 {
@@ -12,6 +13,8 @@ namespace DOWNNOTIFIER.WebApp
             builder.Services.AddTransient<IUserRoleBL, UserRoleBL>();
             builder.Services.AddTransient<IUserBL, UserBL>();
             builder.Services.AddTransient<IApplicationBL, ApplicationBL>();
+
+            builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
@@ -30,7 +33,7 @@ namespace DOWNNOTIFIER.WebApp
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.MapControllerRoute(
