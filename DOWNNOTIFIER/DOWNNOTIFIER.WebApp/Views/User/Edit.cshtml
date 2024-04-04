@@ -5,10 +5,12 @@
     Model.Password = string.Empty;
 }
 
+<script src="~/js/user/user.js"></script>
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-12">
-            @using (Html.BeginForm("Edit", "User", FormMethod.Post))
+            @using (Html.BeginForm("Edit", "User", FormMethod.Post, new { id = "postForm" }))
             {
                 <div class="card">
                     <div class="card-header">
@@ -41,19 +43,19 @@
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon1">Adı</span>
-                            @Html.TextBoxFor(x => x.Name, new { type = "text", @class = "form-control", placeholder = "Adı", ariaLabel = "Adı" })
+                            @Html.TextBoxFor(x => x.Name, new { type = "text", @class = "form-control", placeholder = "Adı", ariaLabel = "Adı", id = "name", required = "required" })
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon1">Soyadı</span>
-                            @Html.TextBoxFor(x => x.Surname, new { type = "text", @class = "form-control", placeholder = "Soyadı", ariaLabel = "Soyadı" })
+                            @Html.TextBoxFor(x => x.Surname, new { type = "text", @class = "form-control", placeholder = "Soyadı", ariaLabel = "Soyadı", id = "surname", required = "required" })
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon1">Kullanıcı Adı</span>
-                            @Html.TextBoxFor(x => x.Username, new { type = "text", @class = "form-control", placeholder = "Kullanıcı Adı", ariaLabel = "Kullanıcı Adı" })
+                            @Html.TextBoxFor(x => x.Username, new { type = "text", @class = "form-control", placeholder = "Kullanıcı Adı", ariaLabel = "Kullanıcı Adı", id = "username", required = "required" })
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon1">Şifre</span>
-                            @Html.PasswordFor(x => x.Password, new { type = "text", @class = "form-control", placeholder = "Şifre", ariaLabel = "Şifre" })
+                            @Html.PasswordFor(x => x.Password, new { type = "text", @class = "form-control", placeholder = "Şifre", ariaLabel = "Şifre", id = "password", required = "required" })
                         </div>
                         <div class="input-group mb-3">
                             <div class="form-check">

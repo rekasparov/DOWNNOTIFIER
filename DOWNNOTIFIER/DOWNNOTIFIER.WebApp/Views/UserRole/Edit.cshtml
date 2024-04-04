@@ -1,9 +1,11 @@
 ﻿@model UserRoleDTO
 
+<script src="~/js/userrole/userrole.js"></script>
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-12">
-            @using (Html.BeginForm("Edit", "UserRole", FormMethod.Post))
+            @using (Html.BeginForm("Edit", "UserRole", FormMethod.Post, new { id = "postForm" }))
             {
                 <div class="card">
                     <div class="card-header">
@@ -18,7 +20,7 @@
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon1">Adı</span>
-                            @Html.TextBoxFor(x => x.Name, new { type = "text", @class = "form-control", placeholder = "Adı", ariaLabel = "Adı" })
+                            @Html.TextBoxFor(x => x.Name, new { type = "text", @class = "form-control", placeholder = "Adı", ariaLabel = "Adı", id = "name", required = "required" })
                         </div>
                     </div>
                     <div class="card-footer">
