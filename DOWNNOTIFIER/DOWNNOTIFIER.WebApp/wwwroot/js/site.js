@@ -1,5 +1,9 @@
-﻿$(() => {
-    var modalRemoveConfirm = $('#modal-remove-confirm');
-    var modalTitle = $('#modal-title');
-    var modalBtnRemove = $('#modal-btn-remove');
+﻿var modalRemoveConfirm;
+var modalTitle;
+var modalBtnRemove;
+
+$(() => {
+    modalRemoveConfirm = $('#modal-remove-confirm');
+    modalTitle = $('#modal-title');
+    modalBtnRemove = $('#modal-btn-remove');
 });

@@ -30,5 +30,27 @@ namespace DOWNNOTIFIER.WebApp.Controllers
 
             return RedirectToAction("Index");
         }
+
+        public IActionResult Delete(int id)
+        {
+            var model = _userRole.GetById(id);
+
+            _userRole.Remove(model);
+
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult AddNew()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult AddNew(UserRoleDTO model)
+        {
+            _userRole.AddNew(model);
+
+            return RedirectToAction("Index");
+        }
     }
 }
