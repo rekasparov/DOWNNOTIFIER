@@ -54,6 +54,11 @@ namespace DOWNNOTIFIER.BusinessLayer.Concrete
             return unitOfWork.User.Select().Include(x => x.UserRole).Select(x => x.ToDTO()).ToList();
         }
 
+        public UserDTO GetByCridential(string username, string password)
+        {
+            return unitOfWork.User.Select(x => x.Username.Equals(username) && x.Password.Equals(password) && x.IsActive).Include(x => x.UserRole).Select(x => x.ToDTO()).FirstOrDefault();
+        }
+
         public UserDTO GetById(int id)
         {
             return unitOfWork.User.Select(x => x.Id == id).Include(x => x.UserRole).Select(x => x.ToDTO()).FirstOrDefault();

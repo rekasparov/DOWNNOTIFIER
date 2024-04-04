@@ -1,9 +1,11 @@
 ﻿using DOWNNOTIFIER.BusinessLayer.Abstract;
 using DOWNNOTIFIER.DataTransferObject;
+using DOWNNOTIFIER.WebApp.Filters;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DOWNNOTIFIER.WebApp.Controllers
 {
+    //[UserCheck]
     public class ApplicationController : Controller
     {
         private readonly IApplicationBL _application;
