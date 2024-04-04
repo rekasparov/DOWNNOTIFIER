@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DOWNNOTIFIER.UnitOfWork", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DOWNNOTIFIER.Extension", "DOWNNOTIFIER.Extension\DOWNNOTIFIER.Extension.csproj", "{CC667EA7-2601-4AA0-8147-7760BBA58FD7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DOWNNOTIFIER.BusinessLayer", "DOWNNOTIFIER.BusinessLayer\DOWNNOTIFIER.BusinessLayer.csproj", "{54037472-8E60-4E2F-888D-C4250F4B8D8E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{CC667EA7-2601-4AA0-8147-7760BBA58FD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC667EA7-2601-4AA0-8147-7760BBA58FD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC667EA7-2601-4AA0-8147-7760BBA58FD7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54037472-8E60-4E2F-888D-C4250F4B8D8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54037472-8E60-4E2F-888D-C4250F4B8D8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54037472-8E60-4E2F-888D-C4250F4B8D8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54037472-8E60-4E2F-888D-C4250F4B8D8E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
