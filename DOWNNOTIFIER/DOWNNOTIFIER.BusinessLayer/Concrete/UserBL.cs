@@ -4,6 +4,7 @@ using DOWNNOTIFIER.Entity;
 using DOWNNOTIFIER.Extension;
 using DOWNNOTIFIER.UnitOfWork.Abstract;
 using DOWNNOTIFIER.UnitOfWork.Concrete;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +21,12 @@ namespace DOWNNOTIFIER.BusinessLayer.Concrete
         {
             var entity = new User
             {
-                Name = dto.Name
+                UserRoleId = dto.UserRoleId,
+                Name = dto.Name,
+                Surname = dto.Surname,
+                Username = dto.Username,
+                Password = dto.Password,
+                IsActive = dto.IsActive
             };
 
             unitOfWork.User.Insert(entity);
@@ -32,7 +38,12 @@ namespace DOWNNOTIFIER.BusinessLayer.Concrete
         {
             var entity = unitOfWork.User.Select(x => x.Id == dto.Id).FirstOrDefault();
 
+            entity.UserRoleId = dto.UserRoleId;
             entity.Name = dto.Name;
+            entity.Surname = dto.Surname;
+            entity.Username = dto.Username;
+            entity.Password = dto.Password;
+            entity.IsActive = dto.IsActive;
 
             unitOfWork.User.Update(entity);
             return unitOfWork.SaveChanges();
@@ -40,12 +51,12 @@ namespace DOWNNOTIFIER.BusinessLayer.Concrete
 
         public List<UserDTO> GetAll()
         {
-            return unitOfWork.User.Select().Select(x => x.ToDTO()).ToList();
+            return unitOfWork.User.Select().Include(x => x.UserRole).Select(x => x.ToDTO()).ToList();
         }
 
         public UserDTO GetById(int id)
         {
-            return unitOfWork.User.Select(x => x.Id == id).Select(x => x.ToDTO()).FirstOrDefault();
+            return unitOfWork.User.Select(x => x.Id == id).Include(x => x.UserRole).Select(x => x.ToDTO()).FirstOrDefault();
         }
 
         public int Remove(UserDTO dto)
