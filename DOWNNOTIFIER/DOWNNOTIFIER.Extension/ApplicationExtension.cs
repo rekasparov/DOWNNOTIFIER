@@ -22,7 +22,13 @@ namespace DOWNNOTIFIER.Extension
                 CreatedBy = entity.CreatedBy,
                 CreatedDate = entity.CreatedDate,
                 UpdatedBy = entity.UpdatedBy,
-                UpdatedDate = entity.UpdatedDate
+                UpdatedDate = entity.UpdatedDate,
+                CreatedByNavigation = entity.CreatedByNavigation != null
+                    ? entity.CreatedByNavigation.ToDTO()
+                    : new UserDTO(),
+                UpdatedByNavigation = entity.UpdatedByNavigation != null
+                    ? entity.UpdatedByNavigation.ToDTO()
+                    : new UserDTO(),
             };
         }
     }

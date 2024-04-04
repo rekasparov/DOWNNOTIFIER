@@ -11,6 +11,7 @@ namespace DOWNNOTIFIER.WebApp
 
             builder.Services.AddTransient<IUserRoleBL, UserRoleBL>();
             builder.Services.AddTransient<IUserBL, UserBL>();
+            builder.Services.AddTransient<IApplicationBL, ApplicationBL>();
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
@@ -34,7 +35,7 @@ namespace DOWNNOTIFIER.WebApp
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=User}/{action=Index}/{id?}");
+                pattern: "{controller=Application}/{action=Index}/{id?}");
 
             app.Run();
         }

@@ -55,6 +55,14 @@
                             <span class="input-group-text" id="basic-addon1">Şifre</span>
                             @Html.PasswordFor(x => x.Password, new { type = "text", @class = "form-control", placeholder = "Şifre", ariaLabel = "Şifre" })
                         </div>
+                        <div class="input-group mb-3">
+                            <div class="form-check">
+                                @Html.CheckBoxFor(x => x.IsActive, new { type = "checkbox", @class = "form-check-input", value = "", id = "isActive" })
+                                <label class="form-check-label" for="isActive">
+                                    Aktif Mi
+                                </label>
+                            </div>
+                        </div>
                     </div>
                     <div class="card-footer">
                         <div class="float-end">
