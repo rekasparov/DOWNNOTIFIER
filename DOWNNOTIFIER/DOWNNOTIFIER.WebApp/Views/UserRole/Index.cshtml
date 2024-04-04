@@ -1,0 +1,32 @@
+﻿@model List<UserRoleDTO>
+
+<script src="~/js/userrole/userrole.js"></script>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-responsive">
+                <thead>
+                    <tr>
+                        <th>Sıra No</th>
+                        <th>Adı</th>
+                        <th>İşlemler</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var userRole in Model)
+                    {
+                        <tr>
+                            <td>@userRole.Id</td>
+                            <td>@userRole.Name</td>
+                            <td>
+                                <a href="@Url.Action("Edit",new{ id = userRole.Id })" class="btn btn-warning">Düzenle</a>
+                                <button class="btn btn-danger" onclick="remove('Kullanıcı Rolü','@Url.Action("Delete","UserRole",new{ id = userRole.Id })')">Sil</button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,34 @@
+﻿@model UserRoleDTO
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            @using (Html.BeginForm("Edit", "UserRole", FormMethod.Post))
+            {
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <h4>Kullanıcı Rolü Düzenle</h4>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">Sıra No</span>
+                            @Html.TextBoxFor(x => x.Id, new { type = "text", @class = "form-control disabled", placeholder = "Sıra No", ariaLabel = "Sıra No", disabled = "disabled" })
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">Adı</span>
+                            @Html.TextBoxFor(x => x.Name, new { type = "text", @class = "form-control", placeholder = "Adı", ariaLabel = "Adı" })
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="float-end">
+                            <button type="submit" class="btn btn-success">Kaydet</button>
+                            <a href="@Url.Action("Index")" class="btn btn-secondary">İptal</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
