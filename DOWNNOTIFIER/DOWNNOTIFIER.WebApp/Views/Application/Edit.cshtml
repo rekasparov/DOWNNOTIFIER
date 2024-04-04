@@ -1,9 +1,11 @@
 ﻿@model ApplicationDTO
 
+<script src="~/js/application/application.js"></script>
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-12">
-            @using (Html.BeginForm("Edit", "Application", FormMethod.Post))
+            @using (Html.BeginForm("Edit", "Application", FormMethod.Post, new { id = "postForm" }))
             {
                 <div class="card">
                     <div class="card-header">
@@ -18,15 +20,15 @@
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon1">Adı</span>
-                            @Html.TextBoxFor(x => x.Name, new { type = "text", @class = "form-control", placeholder = "Adı", ariaLabel = "Adı" })
+                            @Html.TextBoxFor(x => x.Name, new { type = "text", @class = "form-control", placeholder = "Adı", ariaLabel = "Adı", id = "name", required = "required" })
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon1">Url</span>
-                            @Html.TextBoxFor(x => x.Url, new { type = "text", @class = "form-control", placeholder = "Url", ariaLabel = "Url" })
+                            @Html.TextBoxFor(x => x.Url, new { type = "text", @class = "form-control", placeholder = "Url", ariaLabel = "Url", id = "url", required = "required" })
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon1">Yenileme Süresi</span>
-                            @Html.TextBoxFor(x => x.IntervalTime, new { type = "text", @class = "form-control", placeholder = "Yenileme Süresi", ariaLabel = "Yenileme Süresi" })
+                            @Html.TextBoxFor(x => x.IntervalTime, new { type = "number", @class = "form-control", placeholder = "Yenileme Süresi", ariaLabel = "Yenileme Süresi", id = "intervalTime", required = "required" })
                         </div>
                         <div class="input-group mb-3">
                             <div class="form-check">
