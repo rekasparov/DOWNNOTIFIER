@@ -11,6 +11,7 @@ namespace DOWNNOTIFIER.BusinessLayer.Abstract
     {
         public List<UserDTO> GetAll();
         public UserDTO GetById(int id);
+        public UserDTO GetByCridential(string username, string password);
         public int AddNew(UserDTO dto);
         public int Edit(UserDTO dto);
         public int Remove(UserDTO dto);

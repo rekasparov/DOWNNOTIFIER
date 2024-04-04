@@ -1,0 +1,41 @@
+﻿@model LoginModel
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            @using (Html.BeginForm("Index", "Login", FormMethod.Post))
+            {
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <h4>Kullanıcı Girişi</h4>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">Kullanıcı Adı</span>
+                            @Html.TextBoxFor(x => x.Username, new { type = "text", @class = "form-control", placeholder = "Kullanıcı Adı", ariaLabel = "Kullanıcı Adı" })
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">Şifre</span>
+                            @Html.PasswordFor(x => x.Password, new { type = "password", @class = "form-control", placeholder = "Şifre", ariaLabel = "Şifre" })
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="form-check">
+                                @Html.CheckBoxFor(x => x.RememberMe, new { type = "checkbox", @class = "form-check-input", value = "", id = "rememberMe" })
+                                <label class="form-check-label" for="rememberMe">
+                                    Beni hatırla
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="float-end">
+                            <button type="submit" class="btn btn-success">Oturum Aç</button>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
