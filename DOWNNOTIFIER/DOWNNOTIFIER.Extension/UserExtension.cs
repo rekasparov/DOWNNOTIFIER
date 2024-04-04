@@ -20,7 +20,10 @@ namespace DOWNNOTIFIER.Extension
                 Surname = entity.Surname,
                 Username = entity.Username,
                 Password = entity.Password,
-                IsActive = entity.IsActive
+                IsActive = entity.IsActive,
+                UserRole = entity.UserRole != null 
+                    ? entity.UserRole.ToDTO() 
+                    : new UserRoleDTO()
             };
         }
     }
