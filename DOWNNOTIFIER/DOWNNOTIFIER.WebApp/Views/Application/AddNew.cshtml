@@ -1,0 +1,46 @@
+﻿@model ApplicationDTO
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            @using (Html.BeginForm("AddNew", "Application", FormMethod.Post))
+            {
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <h4>Yeni Uygulama Ekle</h4>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">Adı</span>
+                            @Html.TextBoxFor(x => x.Name, new { type = "text", @class = "form-control", placeholder = "Adı", ariaLabel = "Adı" })
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">Url</span>
+                            @Html.TextBoxFor(x => x.Url, new { type = "text", @class = "form-control", placeholder = "Url", ariaLabel = "Url" })
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">Yenileme Süresi</span>
+                            @Html.TextBoxFor(x => x.IntervalTime, new { type = "number", @class = "form-control", placeholder = "Yenileme Süresi", ariaLabel = "Yenileme Süresi" })
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="form-check">
+                                @Html.CheckBoxFor(x => x.IsActive, new { type = "checkbox", @class = "form-check-input", value = "", id = "isActive" })
+                                <label class="form-check-label" for="isActive">
+                                    Aktif Mi
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="float-end">
+                            <button type="submit" class="btn btn-success">Kaydet</button>
+                            <a href="@Url.Action("Index")" class="btn btn-secondary">İptal</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

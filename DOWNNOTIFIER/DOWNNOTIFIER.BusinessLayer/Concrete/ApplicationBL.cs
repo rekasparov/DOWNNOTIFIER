@@ -4,6 +4,7 @@ using DOWNNOTIFIER.Entity;
 using DOWNNOTIFIER.Extension;
 using DOWNNOTIFIER.UnitOfWork.Abstract;
 using DOWNNOTIFIER.UnitOfWork.Concrete;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -50,12 +51,12 @@ namespace DOWNNOTIFIER.BusinessLayer.Concrete
 
         public List<ApplicationDTO> GetAll()
         {
-            return unitOfWork.Application.Select().Select(x => x.ToDTO()).ToList();
+            return unitOfWork.Application.Select().Include(x => x.CreatedByNavigation).Include(x => x.CreatedByNavigation).Select(x => x.ToDTO()).ToList();
         }
 
         public ApplicationDTO GetById(int id)
         {
-            return unitOfWork.Application.Select(x => x.Id == id).Select(x => x.ToDTO()).FirstOrDefault();
+            return unitOfWork.Application.Select(x => x.Id == id).Include(x => x.CreatedByNavigation).Include(x => x.CreatedByNavigation).Select(x => x.ToDTO()).FirstOrDefault();
         }
 
         public int Remove(ApplicationDTO dto)
