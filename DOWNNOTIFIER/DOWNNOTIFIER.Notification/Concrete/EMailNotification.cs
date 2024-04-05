@@ -11,12 +11,12 @@ namespace DOWNNOTIFIER.Notification.Concrete
 {
     public class EMailNotification : BaseNotification
     {
-        private const string DEFAULT_HOST = "mail.kurumsaleposta.com";
+        private const string DEFAULT_HOST = "xxx.xxx.com";
         private const int DEFAULT_PORT = 587;
-        private const string DEFAULT_USERNAME = "burak.kayabal@proceed.com.tr";
-        private const string DEFAULT_PASSWORD = "Kayabal.Burak41";
+        private const string DEFAULT_USERNAME = "xxx@xxx.com";
+        private const string DEFAULT_PASSWORD = "**********";
         private const bool DEFAULT_ENABLE_SSL = false;
-        private const string DEFAULT_SENDER = "error@proceed.com.tr";
+        private const string DEFAULT_SENDER = "xxx.@xxx.com";
 
         public override async Task SendNotification(Dictionary<string, object> parameters)
         {
