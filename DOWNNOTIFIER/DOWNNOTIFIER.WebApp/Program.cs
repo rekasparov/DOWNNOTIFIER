@@ -1,6 +1,7 @@
 using DOWNNOTIFIER.BusinessLayer.Abstract;
 using DOWNNOTIFIER.BusinessLayer.Concrete;
 using DOWNNOTIFIER.Notification.Concrete;
+using DOWNNOTIFIER.WebApp.Filters;
 using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace DOWNNOTIFIER.WebApp
@@ -20,7 +21,7 @@ namespace DOWNNOTIFIER.WebApp
             builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();
 
             // Add services to the container.
-            builder.Services.AddControllersWithViews();
+            builder.Services.AddControllersWithViews(x => x.Filters.Add(new GeneralException()));
 
             var app = builder.Build();
 
