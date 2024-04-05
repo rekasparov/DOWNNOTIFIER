@@ -51,7 +51,7 @@ namespace DOWNNOTIFIER.WebApp.Controllers
                 IsPersistent = model.RememberMe
             });
 
-            return RedirectToAction("Index", "User");
+            return RedirectToAction("Index", "Dashboard");
         }
     }
 }

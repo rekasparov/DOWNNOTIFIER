@@ -7,7 +7,7 @@
             },
             url: {
                 required: true,
-                maxlength: 20
+                maxlength: 35
             },
             intervalTime: "required"
         }
