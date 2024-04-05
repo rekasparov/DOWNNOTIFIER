@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
+using DOWNNOTIFIER.WebApp.Helpers;
+using System.Reflection;
 
 namespace DOWNNOTIFIER.WebApp.Filters
 {
@@ -10,12 +12,7 @@ namespace DOWNNOTIFIER.WebApp.Filters
 
         public void OnException(ExceptionContext context)
         {
-            var exception = new BasicErrorHttpResponse(context.Exception.Message, HttpStatusCode.InternalServerError);
-
-            context.Result = new ObjectResult(exception)
-            {
-                StatusCode = (int)exception.StatusCode
-            };
+            new ErrorLogger(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)).WriteErrorLog(context.Exception);
         }
     }
 }
