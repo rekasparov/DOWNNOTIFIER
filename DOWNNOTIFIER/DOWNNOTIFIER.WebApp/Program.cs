@@ -1,5 +1,6 @@
 using DOWNNOTIFIER.BusinessLayer.Abstract;
 using DOWNNOTIFIER.BusinessLayer.Concrete;
+using DOWNNOTIFIER.Notification.Concrete;
 using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace DOWNNOTIFIER.WebApp
@@ -13,6 +14,8 @@ namespace DOWNNOTIFIER.WebApp
             builder.Services.AddTransient<IUserRoleBL, UserRoleBL>();
             builder.Services.AddTransient<IUserBL, UserBL>();
             builder.Services.AddTransient<IApplicationBL, ApplicationBL>();
+
+            builder.Services.AddSingleton<EMailNotification>();
 
             builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();
 
