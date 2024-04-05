@@ -18,6 +18,7 @@
   <ItemGroup>
     <ProjectReference Include="..\DOWNNOTIFIER.BusinessLayer\DOWNNOTIFIER.BusinessLayer.csproj" />
     <ProjectReference Include="..\DOWNNOTIFIER.DataTransferObject\DOWNNOTIFIER.DataTransferObject.csproj" />
+    <ProjectReference Include="..\DOWNNOTIFIER.Notification\DOWNNOTIFIER.Notification.csproj" />
   </ItemGroup>
 
 </Project>

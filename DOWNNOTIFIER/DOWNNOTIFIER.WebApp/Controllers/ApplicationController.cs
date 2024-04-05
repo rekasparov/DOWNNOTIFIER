@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace DOWNNOTIFIER.WebApp.Controllers
 {
-    //[UserCheck]
+    [UserCheck]
     public class ApplicationController : Controller
     {
         private readonly IApplicationBL _application;

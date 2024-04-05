@@ -1,5 +1,8 @@
 using DOWNNOTIFIER.BusinessLayer.Abstract;
 using DOWNNOTIFIER.BusinessLayer.Concrete;
+using DOWNNOTIFIER.Notification.Concrete;
+using DOWNNOTIFIER.WebApp.Filters;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace DOWNNOTIFIER.WebApp
 {
@@ -13,8 +16,12 @@ namespace DOWNNOTIFIER.WebApp
             builder.Services.AddTransient<IUserBL, UserBL>();
             builder.Services.AddTransient<IApplicationBL, ApplicationBL>();
 
+            builder.Services.AddSingleton<EMailNotification>();
+
+            builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();
+
             // Add services to the container.
-            builder.Services.AddControllersWithViews();
+            builder.Services.AddControllersWithViews(x => x.Filters.Add(new GeneralException()));
 
             var app = builder.Build();
 
@@ -30,12 +37,12 @@ namespace DOWNNOTIFIER.WebApp
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Application}/{action=Index}/{id?}");
+                pattern: "{controller=Dashboard}/{action=Index}/{id?}");
 
             app.Run();
         }

@@ -1,0 +1,39 @@
+﻿@model List<ApplicationDTO>
+
+<script src="~/js/dashboard/dashboard.js"></script>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <h4>Ana Sayfa</h4>
+        </div>
+    </div>
+    <div class="row">
+        @foreach (var application in Model)
+        {
+            <div class="col-3">
+                <div class="card" data-interval-time="@application.IntervalTime" data-url="@application.Url" data-id="@application.Id">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <h4>@($"#{application.Id}")</h4>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3 w-100 text-center">
+                            <h2>@application.Name</h2>
+                        </div>
+                        <div class="mb-3 w-100">
+                            <span>@($"Yenileme aralığı: {application.IntervalTime} (sn.)")</span>
+                        </div>
+                        <div class="mb-3 w-100">
+                            <span>Son istek zamanı: <span class="last-request-time"></span></span>
+                        </div>
+                        <div class="mb-3 w-100">
+                            <span>Durum: <span class="application-status"></span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
